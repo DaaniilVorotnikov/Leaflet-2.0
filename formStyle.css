@@ -1,0 +1,32 @@
+.form-popup {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 14px;
+    z-index: 2;
+}
+.form-container {
+
+    max-width: 320px;
+
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+}
+
+.form-container .cancel {
+
+    background-color: #448AFF;
+
+}
+ .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+.open-button {
+    position: absolute;
+    bottom: 22px;
+    right: 26px;
+    width: 290px;
+    z-index: 2;
+  }
