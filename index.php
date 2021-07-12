@@ -71,21 +71,6 @@ while ($massMarker = $getMarker -> fetch_assoc()){
 }
 $jsonStr = json_encode($jsSend);
 
-//echo $jsonStr;
-
-
-
-//$namePrinter = $massMarker[name];
-//echo '<div id = "o">'.$namePrinter.'</div>';   
-
-//$adressPrinter = $massMarker[adress];
-
-
-//$coord1Printer = $massMarker[coordinates1];
-//echo $coord1Printer;
-
-//$coord2Printer = $massMarker[coordinates2];
-//echo $coord1Printer;
 
 ?>
 
@@ -106,7 +91,15 @@ $jsonStr = json_encode($jsSend);
 var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2]).addTo(mymap)
 newMarker.bindPopup(massFromJson[key].name + '<br>' + massFromJson[key].adress);
 
+
 }
+
+
+function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+
+mymap.on('click', onMapClick);
 
  //console.log(massFromJson[key].name);
 </script>

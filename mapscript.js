@@ -74,6 +74,7 @@ var group = {
  L.control.layers(allMarkers, group).addTo(mymap);
 
 
+
 function openForm() {
     document.getElementById("myForm").style.display = "block"; }
 
@@ -81,5 +82,13 @@ function openForm() {
     document.getElementById("myForm").style.display = "none";
 } 
 
+
+
+
+function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+
+mymap.on('click', onMapClick);
 
 
