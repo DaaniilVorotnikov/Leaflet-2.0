@@ -51,13 +51,14 @@
     <input type="text" name="adress" >
 
 
-<!--
-    <label for="coordinates1"><b>Координаты1:</b></label>
-    <input type="text" name="coordinates1">
+    <?php include("coordBufer.php"); ?>
 
-    <label for="coordinates2"><b>Координаты2:</b></label>
-    <input type="text" name="coordinates2">
--->
+    <!--<label for="coordinates1"><b>Координаты1:</b></label> -->
+    <input type="hidden" name="coordinates1" id="c1">
+
+   <!-- <label for="coordinates2"><b>Координаты2:</b></label> -->
+    <input type="hidden" name="coordinates2" id="c2">
+
     <button type="submit" class="btn">Сохранить</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Закрыть</button>
 

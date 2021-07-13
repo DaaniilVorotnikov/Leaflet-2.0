@@ -4,19 +4,18 @@ header('Content-Type: application/json');
 
  $markerName = filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING);
  $markerAdress = filter_var(trim($_POST['adress']), FILTER_SANITIZE_STRING);
- //$markerCoord1 = filter_var(trim($_POST['coordinates1']), FILTER_SANITIZE_STRING);
- //$markerCoord2 = filter_var(trim($_POST['coordinates2']), FILTER_SANITIZE_STRING);
-//$newcoord = $_POST['post_data'];
-//$_POST['post_data'];
-//echo json_encode($_POST['post_data']);
+ $markerCoord1 = filter_var(trim($_POST['coordinates1']), FILTER_SANITIZE_STRING);
+ $markerCoord2 = filter_var(trim($_POST['coordinates2']), FILTER_SANITIZE_STRING);
 
-//$massFromJsn = var_dump(json_decode($dataJson, true));
+echo $markerCoord1;
+echo ' ';
+echo $markerCoord2;
 
 
 $mySQL = new mysqli("localhost", "root", "root", "leaflet");
-$mySQL -> query("INSERT INTO `marker2` (`name`, `adress`, `coordinates`)
-	VALUES ('$markerName','$markerAdress',' $newcoord')"); 
+$mySQL -> query("INSERT INTO `marker` (`name`, `adress`, `coordinates1`, `coordinates2`)
+	VALUES ('$markerName','$markerAdress',' $markerCoord1', '$markerCoord2')"); 
 
-//header('Location: /');
-//exit();
+header('Location: /');
+exit();
 ?>

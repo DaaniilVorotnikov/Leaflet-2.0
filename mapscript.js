@@ -3,6 +3,8 @@ var maPiter = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a rel="nofollow" href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
+scrollWheelZoom: false;
+
 var logoIcon = L.icon({
     iconUrl: 'logo.svg',
 
@@ -77,19 +79,17 @@ var group = {
 
 function onMapClick(e){
             var cd = e.latlng;
-       //     var jsonCd = JSON.stringify(cd);
-          
-    $.ajax({
-    url: 'markerData.php',
-    type: 'POST',
-    data: {post_data:jsonCd},
-    dataType: 'json',
-success: function(json){
-        if(json) $('body').html(json);
-  }
+            var jsonCd = JSON.stringify(cd);
+            var backJs = JSON.parse(jsonCd);
+            var c1 = backJs.lat;
+            var c2 = backJs.lng;
 
-});
-            
+            document.getElementById("c1").value = c1;
+            document.getElementById("c2").value = c2;
+
+
+          
+
          function openForm() {
     document.getElementById("myForm").style.display = "block"; }
 
