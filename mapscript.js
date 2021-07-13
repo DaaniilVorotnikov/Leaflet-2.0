@@ -77,7 +77,7 @@ var group = {
 
 function onMapClick(e){
             var cd = e.latlng;
-            var jsonCd = JSON.stringify(cd);
+       //     var jsonCd = JSON.stringify(cd);
           
     $.ajax({
     url: 'markerData.php',
