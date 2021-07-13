@@ -3,7 +3,10 @@ var maPiter = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a rel="nofollow" href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
-scrollWheelZoom: false;
+
+
+
+
 
 var logoIcon = L.icon({
     iconUrl: 'logo.svg',

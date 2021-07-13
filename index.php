@@ -5,34 +5,61 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Leaflet test</title>
+
 	<link rel="stylesheet" href="formStyle.css">
+
+  <link rel="stylesheet" href="Popup.css">
 
 	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
 
-   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script> 
 
 
-   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
 	<style>
+
 		 #mapid{
 		 	position:absolute;
 		 	z-index: 1;
 			height: 100%;
 			width: 100%;
 		}
-		
+    .custom-popup .leaflet-popup-content-wrapper {
+  background:#FFFACD;
+  color: black;
+  font-size:16px;
+  line-height:24px;
+  border-radius: 0px;
+  width: 600px;
+  height: 600px;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+    color:rgba(255,255,255,0.1);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+.custom-popup .leaflet-popup-tip {
+    background: #FFFACD;
+    border: none;
+    box-shadow: none;
+  }
+
+
 	</style>
+
 </head>
 <body style="overflow:hidden;">
 
@@ -49,12 +76,10 @@
     <input type="text" name="adress" >
 
 
-    <?php include("coordBufer.php"); ?>
 
-    <!--<label for="coordinates1"><b>Координаты1:</b></label> -->
     <input type="hidden" name="coordinates1" id="c1">
 
-   <!-- <label for="coordinates2"><b>Координаты2:</b></label> -->
+
     <input type="hidden" name="coordinates2" id="c2">
 
     <button type="submit" class="btn">Сохранить</button>
@@ -77,7 +102,7 @@ $jsonStr = json_encode($jsSend);
 ?>
 
 
-<div id="mapid"></div>
+<div class="custom-popup" id="mapid"></div>
 <script src="mapscript.js"></script> 
 <script type="text/javascript"> 
 
@@ -87,7 +112,7 @@ $jsonStr = json_encode($jsSend);
  for(var key in massFromJson){
 
 var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2]).addTo(mymap)
-newMarker.bindPopup(massFromJson[key].name + '<br>' + massFromJson[key].adress);
+newMarker.bindPopup('<h2>' + massFromJson[key].name + '</h2>' + '<p>' + massFromJson[key].adress + '</p>' + '<img src="nevotresh.jpg" width="550" height="300">');
 
 }
 
