@@ -21,6 +21,8 @@
 
    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
 	<style>
 		 #mapid{
@@ -36,7 +38,7 @@
 </head>
 <body>
 
-<button class="open-button" onclick="openForm()">Добавить</button>
+<button class="open-button" return onclick="openForm()">Добавить</button>
 <div class="form-popup" id="myForm">
   <form method="post" action="markerData.php" id="main_form" class="form-container">
     <h1>Новый маркер</h1>
@@ -48,12 +50,14 @@
     <label for="adress"><b>Адрес:</b></label>
     <input type="text" name="adress" >
 
+
+<!--
     <label for="coordinates1"><b>Координаты1:</b></label>
     <input type="text" name="coordinates1">
 
     <label for="coordinates2"><b>Координаты2:</b></label>
     <input type="text" name="coordinates2">
-
+-->
     <button type="submit" class="btn">Сохранить</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Закрыть</button>
 
@@ -71,12 +75,7 @@ while ($massMarker = $getMarker -> fetch_assoc()){
 }
 $jsonStr = json_encode($jsSend);
 
-
 ?>
-
-
-
-
 
 
 <div id="mapid"></div>
@@ -91,17 +90,8 @@ $jsonStr = json_encode($jsSend);
 var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2]).addTo(mymap)
 newMarker.bindPopup(massFromJson[key].name + '<br>' + massFromJson[key].adress);
 
-
 }
 
-
-function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
-}
-
-mymap.on('click', onMapClick);
-
- //console.log(massFromJson[key].name);
 </script>
 
 </body>

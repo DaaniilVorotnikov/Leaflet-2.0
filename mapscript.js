@@ -75,8 +75,30 @@ var group = {
 
 
 
-function openForm() {
+function onMapClick(e){
+            var cd = e.latlng;
+            var jsonCd = JSON.stringify(cd);
+          
+    $.ajax({
+    url: 'markerData.php',
+    type: 'POST',
+    data: {post_data:jsonCd},
+    dataType: 'json',
+success: function(json){
+        if(json) $('body').html(json);
+  }
+
+});
+            
+         function openForm() {
     document.getElementById("myForm").style.display = "block"; }
+
+    return (openForm());   
+}
+
+mymap.on('click', onMapClick);
+
+  
 
     function closeForm() {
     document.getElementById("myForm").style.display = "none";
@@ -84,11 +106,5 @@ function openForm() {
 
 
 
-
-function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
-}
-
-mymap.on('click', onMapClick);
 
 
