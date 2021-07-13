@@ -28,15 +28,13 @@
 		 #mapid{
 		 	position:absolute;
 		 	z-index: 1;
-			height:100%;
+			height: 100%;
 			width: 100%;
 		}
-		.sizeImage{
-			size: 10px;
-		}
+		
 	</style>
 </head>
-<body>
+<body style="overflow:hidden;">
 
 <button class="open-button" return onclick="openForm()">Добавить</button>
 <div class="form-popup" id="myForm">
