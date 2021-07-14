@@ -20,7 +20,7 @@
     background-color: #448AFF;
 
 }
- .form-container .btn:hover, .open-button:hover {
+ .form-container .btn:hover, .open-button:hover, .open-button-coord:hover {
     opacity: 1;
 }
 .open-button {
