@@ -107,15 +107,24 @@ mymap.on('click', onMapClick);
     document.getElementById("myForm").style.display = "none";
 } 
 
-function onPopupOpen() {
 
-    var tempMarker = this;
+    function deleteMarker(){
 
-    // To remove marker on click of delete button in the popup of marker
-    $(".marker-delete-button:visible").click(function () {
-        map.removeLayer(tempMarker);
-    });
-}
+       newMarker.remove(mymap);
 
 
+       var del = document.querySelector("input[name='delete']").value;
+
+
+    $.ajax({
+            url:'delete.php',
+            type:"POST",
+            data:{delete: del},
+             success: function(data) {
+  }
+        });
+
+
+
+    }
 

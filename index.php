@@ -85,7 +85,7 @@ $jsonStr = json_encode($jsSend);
  for(var key in massFromJson){
 
 var popup = L.popup()
-  .setContent('<h2>' + massFromJson[key].name + '</h2>' + '<p>' + massFromJson[key].adress + '</p>' + '<img src="nevotresh.jpg" width="550" height="300">' + '<form method="post" action="delete.php" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <button type="submit">Удалить</button> </form>')
+  .setContent('<h2>' + massFromJson[key].name + '</h2>' + '<p>' + massFromJson[key].adress + '</p>' + '<img src="nevotresh.jpg" width="550" height="300">' + '<form method="post" action="#" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <button type="button" onclick="deleteMarker()">Удалить</button> </form>')
 
 
 var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2]).addTo(mymap)
