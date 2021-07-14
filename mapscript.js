@@ -107,7 +107,15 @@ mymap.on('click', onMapClick);
     document.getElementById("myForm").style.display = "none";
 } 
 
+function onPopupOpen() {
 
+    var tempMarker = this;
+
+    // To remove marker on click of delete button in the popup of marker
+    $(".marker-delete-button:visible").click(function () {
+        map.removeLayer(tempMarker);
+    });
+}
 
 
 

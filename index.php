@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" href="formStyle.css">
 
-  <link rel="stylesheet" href="Popup.css">
+  <link rel="stylesheet" href="mapStyle.css">
 
 	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -27,38 +27,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
-	<style>
-
-		 #mapid{
-		 	position:absolute;
-		 	z-index: 1;
-			height: 100%;
-			width: 100%;
-		}
-    .custom-popup .leaflet-popup-content-wrapper {
-  background:#FFFACD;
-  color: black;
-  font-size:16px;
-  line-height:24px;
-  border-radius: 0px;
-  width: 600px;
-  height: 600px;
-  }
-.custom-popup .leaflet-popup-content-wrapper a {
-    color:rgba(255,255,255,0.1);
-  }
-.custom-popup .leaflet-popup-tip-container {
-  width:30px;
-  height:15px;
-  }
-.custom-popup .leaflet-popup-tip {
-    background: #FFFACD;
-    border: none;
-    box-shadow: none;
-  }
-
-
-	</style>
+	
 
 </head>
 <body style="overflow:hidden;">
@@ -91,13 +60,16 @@
 
 
 <?php
-$mySQL = new mysqli("localhost", "root", "root", "leaflet");
-$getMarker = $mySQL -> query("SELECT * FROM `marker`");
+
+  $mySQL = new mysqli("localhost", "root", "root", "leaflet");
+  $getMarker = $mySQL -> query("SELECT * FROM `marker`");
 
 while ($massMarker = $getMarker -> fetch_assoc()){
   $jsSend[] = $massMarker;
 }
+$mySQL -> close();
 $jsonStr = json_encode($jsSend);
+
 
 ?>
 
@@ -108,13 +80,21 @@ $jsonStr = json_encode($jsSend);
 
  var strJsonFromPHP = '<?php echo $jsonStr;?>';
  var massFromJson = JSON.parse(strJsonFromPHP);
+ 
 
  for(var key in massFromJson){
 
+var popup = L.popup()
+  .setContent('<h2>' + massFromJson[key].name + '</h2>' + '<p>' + massFromJson[key].adress + '</p>' + '<img src="nevotresh.jpg" width="550" height="300">' + '<form method="post" action="delete.php" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <button type="submit">Удалить</button> </form>')
+
+
 var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2]).addTo(mymap)
-newMarker.bindPopup('<h2>' + massFromJson[key].name + '</h2>' + '<p>' + massFromJson[key].adress + '</p>' + '<img src="nevotresh.jpg" width="550" height="300">');
+newMarker.bindPopup(popup);
+
 
 }
+
+
 
 </script>
 

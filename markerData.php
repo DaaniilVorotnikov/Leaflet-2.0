@@ -16,6 +16,6 @@ $mySQL = new mysqli("localhost", "root", "root", "leaflet");
 $mySQL -> query("INSERT INTO `marker` (`name`, `adress`, `coordinates1`, `coordinates2`)
 	VALUES ('$markerName','$markerAdress',' $markerCoord1', '$markerCoord2')"); 
 
+$mySQL -> close();
 header('Location: /');
-exit();
 ?>
