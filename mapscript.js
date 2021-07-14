@@ -4,9 +4,13 @@ var maPiter = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(mymap);
 
 
+var redlogo = L.icon({
+    iconUrl: 'leaf-red.png',
 
-
-
+    iconSize:     [28, 55], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location// the same for the shadow
+    popupAnchor:  [-3, -76]
+});
 
 var logoIcon = L.icon({
     iconUrl: 'logo.svg',
@@ -126,5 +130,5 @@ mymap.on('click', onMapClick);
 
 
 
-    }
+}
 
