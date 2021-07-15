@@ -3,6 +3,8 @@ var maPiter = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a rel="nofollow" href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
+// var controls = ('controls');
+
 
 var redlogo = L.icon({
     iconUrl: 'leaf-red.png',
@@ -61,7 +63,7 @@ L.Routing.control({
     waypoints: [
         L.latLng(59.910398, 30.285935),
         L.latLng(59.929631, 30.289794)
-    ]
+    ], 
 }).addTo(mymap);
 
 var markers = L.layerGroup([marker, markerVolcheka1, markerVolcheka2, markerVolcheka3, markerVolcheka4, polygon])
@@ -80,7 +82,10 @@ var group = {
     "Все метки": markers
 }
 
- L.control.layers(allMarkers, group).addTo(mymap);
+    var controlBackside = L.control.layers(allMarkers, group);
+    controlBackside._map = mymap;
+    var cntrlD = controlBackside.onAdd(mymap);
+    document.getElementById('controls').appendChild(cntrlD);
 
 
 
@@ -92,17 +97,23 @@ function onMapClick(e){
             var c1 = backJs.lat;
             var c2 = backJs.lng;
 
-/*     var controls =  L.Routing.control({
-        waypoints: [
-        L.latLng(59.910398, 30.285935),
-        L.latLng(c1, c2)
-                ], show:false
-        }).addTo(mymap);
+                var controlR = L.Routing.control({
+                waypoints: [
+                L.latLng(59.910398, 30.285935),
+                L.latLng(c1, c2)
+                ]
+                });
+
+            controlR._map = mymap;
+            var controlDiv = controlR.onAdd(mymap);
+
+            document.getElementById('controls').appendChild(controlDiv);
+
 
             document.getElementById("c1").value = c1;
             document.getElementById("c2").value = c2;
 
-*/
+
           
 
     function openForm() {
@@ -145,4 +156,5 @@ mymap.on('click', onMapClick);
 
 
 }
+
 

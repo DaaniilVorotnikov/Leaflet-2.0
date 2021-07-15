@@ -2,8 +2,8 @@
     display: none;
     position: absolute;
     bottom: 0;
-    right: 14px;
-    z-index: 2;
+    left: 14px;
+    z-index: 3;
 }
 .form-container {
 
@@ -24,7 +24,7 @@
     opacity: 1;
 }
 .open-button {
-    position: absolute;
+    position: static;
     bottom: 22px;
     right: 26px;
     width: 290px;

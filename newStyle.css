@@ -9,7 +9,7 @@
 
 
 .open-button-coord {
-    position: absolute;
+    position: static;
     bottom: 22px;
     left: 26px;
     width: 290px;

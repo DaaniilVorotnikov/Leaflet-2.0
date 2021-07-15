@@ -12,7 +12,9 @@
 
   <link rel="stylesheet" href="newStyle.css">
 
- <link rel="stylesheet" href="scrollStyle.css">
+  <link rel="stylesheet" href="scrollStyler.css">
+
+  <link rel="stylesheet" href="css/bootstrap-grid.rtl">
 
 	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -36,8 +38,8 @@
 </head>
 <body style="overflow:hidden;">
 
-<button class="open-button" return onclick="openForm()">Добавить</button>
-<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button>
+
+
 
 <div class="form-popup" id="myForm">
   <form method="post" action="markerData.php" id="main_form" class="form-container">
@@ -85,9 +87,11 @@
 
 
 </div>
-<div class="scrollStuff" id="controls"> </div>
 
-<div class="scrollStuff" id="controls"> </div>
+<div class="scrollStuff" id="controls">
+<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button>
+</div> 
+
 <?php
 
   $mySQL = new mysqli("localhost", "root", "root", "leaflet");
