@@ -1,0 +1,13 @@
+.scrollStuff{
+	position:absolute;
+	right: 10px;
+	top:10px;
+	width:350px;
+	height: 500px;
+	background: white;
+
+    white-space: nowrap;
+    overflow-x: visible;
+
+    z-index: 2;
+}

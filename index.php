@@ -10,6 +10,10 @@
 
   <link rel="stylesheet" href="mapStyle.css">
 
+  <link rel="stylesheet" href="newStyle.css">
+
+ <link rel="stylesheet" href="scrollStyle.css">
+
 	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -33,7 +37,7 @@
 <body style="overflow:hidden;">
 
 <button class="open-button" return onclick="openForm()">Добавить</button>
-<button class="open-button-coord" return onclick="openForm()">Построить маршрут</button>
+<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button>
 
 <div class="form-popup" id="myForm">
   <form method="post" action="markerData.php" id="main_form" class="form-container">
@@ -60,8 +64,30 @@
 
 
 </div>
+<!--
+<div class="form-popup2" id="myForm2">
+  <form method="post" action="markerData.php" id="main_form" class="form-container">
+    <h1>Построить маршрут</h1>
+
+    <label for="name"><b>Начальная точка:</b></label>
+    <input type="text" name="name">
 
 
+    <label for="adress"><b>Конечная точка:</b></label>
+    <input type="text" name="finish" >
+
+
+
+    <button type="submit" class="btn">Сохранить</button>
+    <button type="button" class="btn cancel" onclick="closeForm2()">Закрыть</button>
+
+  </form>
+
+
+</div>
+<div class="scrollStuff" id="controls"> </div>
+-->
+<div class="scrollStuff" id="controls"> </div>
 <?php
 
   $mySQL = new mysqli("localhost", "root", "root", "leaflet");
