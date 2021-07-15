@@ -92,20 +92,17 @@ function onMapClick(e){
             var c1 = backJs.lat;
             var c2 = backJs.lng;
 
-     var controls =  L.Routing.control({
+/*     var controls =  L.Routing.control({
         waypoints: [
         L.latLng(59.910398, 30.285935),
         L.latLng(c1, c2)
-                ],
+                ], show:false
         }).addTo(mymap);
-
-
-        console.log(controls);
 
             document.getElementById("c1").value = c1;
             document.getElementById("c2").value = c2;
 
-
+*/
           
 
     function openForm() {

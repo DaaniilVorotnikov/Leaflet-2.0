@@ -64,7 +64,7 @@
 
 
 </div>
-<!--
+
 <div class="form-popup2" id="myForm2">
   <form method="post" action="markerData.php" id="main_form" class="form-container">
     <h1>Построить маршрут</h1>
@@ -86,7 +86,7 @@
 
 </div>
 <div class="scrollStuff" id="controls"> </div>
--->
+
 <div class="scrollStuff" id="controls"> </div>
 <?php
 
