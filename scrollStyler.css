@@ -1,17 +1,38 @@
 .scrollStuff{
 	position:absolute;
-	right: 10px;
-	top:10px;
+	right: 0.1px;
+	
 	width:325px;
 	height: 100%;
 	background: white;
 
 	float: middle;
 
-    overflow: scroll;
+    overflow: auto;
 
     bottom: dotted #008080;
 	box-shadow: inset 0 0 6px;
 
     z-index: 2;
+}
+
+.routing-panel{
+	top:100px;
+	position:relative;
+	padding: 2px;
+	box-shadow: inset 0 0 6px;
+	
+}
+
+
+.custom-control-menu{
+	position:relative;
+	height: 150px;
+	width: 325px;
+	padding: 10px;
+
+}
+
+.form_radio {
+	margin-bottom: 10px;
 }

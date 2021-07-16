@@ -92,8 +92,39 @@
 
 </div>
 
-<div class="scrollStuff" id="controls">
+<div class="scrollStuff">
 <!--<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button> -->
+<div class="custom-control-menu">
+   <div class="form_radio">
+  <input id="radio1" type="radio" name="radio" value="1">
+  <label for="radio-1"><img src="logo.svg" width="50" height="30">&nbsp;Крауд</label>
+   </div>
+   <div class="form_radio">
+  <input id="radio2" type="radio" name="radio" value="2">
+  <label for="radio-2"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 1</label>
+   </div>
+   <div class="form_radio">
+  <input id="radio3" type="radio" name="radio" value="3">
+  <label for="radio-3"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 2</label>
+   </div>
+   <div class="form_radio">
+  <input id="radio4" type="radio" name="radio" value="4">
+  <label for="radio-4"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 3</label>
+   </div>
+   <div class="form_radio">
+  <input id="radio5" type="radio" name="radio" value="5">
+  <label for="radio-5"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 4</label>
+   </div>
+   <div class="form_radio">
+  <input id="radio6" type="radio" name="radio" value="6">
+  <label for="radio-6"><img src="newG.jpg" width="20" height="20">&nbsp;Новая голандия</label>
+   </div>
+   <div class="form_radio">
+  <input id="radio7" type="radio" name="radio" value="7">
+  <label for="radio-7">&nbsp;Все метки</label>
+   </div>
+</div>
+<div class="routing-panel" id="controls"></div>
 </div> 
 
 <?php

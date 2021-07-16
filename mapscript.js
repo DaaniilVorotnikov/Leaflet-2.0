@@ -30,45 +30,135 @@ var logoIconVolcheka = L.icon({
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
- var marker = L.marker([59.910398, 30.285935],{icon: logoIcon})
-marker.bindPopup("<b>Крауд</b>");
 
+
+var marker = L.marker([59.910398, 30.285935],{icon: logoIcon})
+marker.bindPopup("<b>Крауд</b>") 
+ 
 
 var markerVolcheka1 = L.marker([59.910731, 30.297485],{icon: logoIconVolcheka})
+markerVolcheka1.bindPopup("<b>Булочная</b><br> Ф.Вольчека")
 
-markerVolcheka1.bindPopup("<b>Булочная</b><br> Ф.Вольчека");
 
+ 
 var  markerVolcheka2 = L.marker([59.915989, 30.314136],{icon: logoIconVolcheka})
+markerVolcheka2.bindPopup("<b>Булочная</b><br> Ф.Вольчека")
 
-markerVolcheka2.bindPopup("<b>Булочная</b><br> Ф.Вольчека");
+
 
 var  markerVolcheka3 = L.marker([59.922152, 30.285125],{icon: logoIconVolcheka})
+markerVolcheka3.bindPopup("<b>Булочная</b><br> Ф.Вольчека")
 
-markerVolcheka3.bindPopup("<b>Булочная</b><br> Ф.Вольчека");
 
 var  markerVolcheka4 = L.marker([59.924522, 30.305639],{icon: logoIconVolcheka})
-
-markerVolcheka4.bindPopup("<b>Булочная</b><br> Ф.Вольчека");
-
+markerVolcheka4.bindPopup("<b>Булочная</b><br> Ф.Вольчека")
 
 var polygon = L.polygon([
     [59.929332, 30.286150],
     [59.931150, 30.291754],
     [59.928091, 30.293395]
-]).addTo(mymap);
+]);
+
+//var markers = L.layerGroup([marker, markerVolcheka1, markerVolcheka2, markerVolcheka3, markerVolcheka4, polygon]);
+
+$("#radio1").change(function(){
+marker.addTo(mymap); 
+markerVolcheka1.remove(mymap);
+markerVolcheka2.remove(mymap);
+markerVolcheka3.remove(mymap);
+markerVolcheka4.remove(mymap);
+polygon.remove(mymap);
+}); 
+
+
+$("#radio2").change(function(){
+markerVolcheka1.addTo(mymap);
+marker.remove(mymap);
+markerVolcheka2.remove(mymap);
+markerVolcheka3.remove(mymap);
+markerVolcheka4.remove(mymap);
+polygon.remove(mymap);
+}); 
+
+
+$("#radio3").change(function(){
+markerVolcheka2.addTo(mymap);
+marker.remove(mymap);
+markerVolcheka1.remove(mymap);
+markerVolcheka3.remove(mymap);
+markerVolcheka4.remove(mymap);
+polygon.remove(mymap);
+
+}); 
+
+
+$("#radio4").change(function(){
+markerVolcheka3.addTo(mymap);
+marker.remove(mymap);
+markerVolcheka1.remove(mymap);
+markerVolcheka2.remove(mymap);
+markerVolcheka4.remove(mymap);
+polygon.remove(mymap);
+
+}); 
 
 
 
-L.Routing.control({
+$("#radio5").change(function(){
+markerVolcheka4.addTo(mymap);
+marker.remove(mymap);
+markerVolcheka1.remove(mymap);
+markerVolcheka2.remove(mymap);
+markerVolcheka3.remove(mymap);
+polygon.remove(mymap);
+
+}); 
+
+$("#radio6").change(function(){
+polygon.addTo(mymap);
+marker.remove(mymap);
+markerVolcheka1.remove(mymap);
+markerVolcheka2.remove(mymap);
+markerVolcheka3.remove(mymap);
+markerVolcheka4.remove(mymap);
+
+}); 
+
+$("#radio7").change(function(){
+marker.remove(mymap);
+markerVolcheka1.remove(mymap);
+markerVolcheka2.remove(mymap);
+markerVolcheka3.remove(mymap);
+markerVolcheka4.remove(mymap);
+polygon.remove(mymap);
+
+marker.addTo(mymap);
+markerVolcheka1.addTo(mymap);
+markerVolcheka2.addTo(mymap);
+markerVolcheka3.addTo(mymap);
+markerVolcheka4.addTo(mymap);
+polygon.addTo(mymap);
+
+});
+
+
+
+
+var controlRs = L.Routing.control({
     waypoints: [
         L.latLng(59.910398, 30.285935),
         L.latLng(59.929631, 30.289794)
     ], 
-}).addTo(mymap);
+});
+            controlRs._map = mymap;
+            var controlDivs = controlRs.onAdd(mymap);
 
-var markers = L.layerGroup([marker, markerVolcheka1, markerVolcheka2, markerVolcheka3, markerVolcheka4, polygon])
-.addTo(mymap);
+            document.getElementById('controls').appendChild(controlDivs);
 
+
+    
+
+/*
 var allMarkers = {
     '<img src="logo.svg" width="50" height="30">':marker,
     '<img src="logoVolcheka.png" width="20" height="20">Булочная 1':markerVolcheka1,
@@ -82,11 +172,11 @@ var group = {
     "Все метки": markers
 }
 
-    var controlBackside = L.control.layers(allMarkers, group);
+/*    var controlBackside = L.control.layers(allMarkers, group);
     controlBackside._map = mymap;
     var cntrlD = controlBackside.onAdd(mymap);
     document.getElementById('controls').appendChild(cntrlD);
-
+*/
 
 
 function onMapClick(e){
