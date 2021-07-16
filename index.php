@@ -14,7 +14,11 @@
 
   <link rel="stylesheet" href="scrollStyler.css">
 
-  <link rel="stylesheet" href="css/bootstrap-grid.rtl">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
 
 	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -89,7 +93,7 @@
 </div>
 
 <div class="scrollStuff" id="controls">
-<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button>
+<!--<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button> -->
 </div> 
 
 <?php
@@ -118,7 +122,7 @@ $jsonStr = json_encode($jsSend);
  for(var key in massFromJson){
 
 var popup = L.popup()
-  .setContent('<h2>' + massFromJson[key].name + '</h2>' + '<p>' + massFromJson[key].adress + '</p>' + '<img src="nevotresh.jpg" width="550" height="300">' + '<form method="post" action="#" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <button type="button" onclick="deleteMarker()">Удалить</button> </form>')
+  .setContent('<p class="h2"><strong>' + massFromJson[key].name + '</strong></p>' + '<p><mark>' + massFromJson[key].adress + '</mark></p>' + '<img src="nevotresh.jpg"  width="550" height="300">' + '<form method="post" action="#" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <p> <div class="d-grid gap-2 d-md-flex justify-content-md-end"><div class="d-grid gap-2"> <button  class="btn btn-danger" type="button"  onclick="deleteMarker()">Удалить</button> </div> </div> </p> </form>')
 
 
 var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2], {icon: redlogo}).addTo(mymap)
