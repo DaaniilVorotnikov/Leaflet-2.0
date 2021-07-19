@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="newStyle.css">
 
   <link rel="stylesheet" href="scrollStyler.css">
+  <link rel="stylesheet" href="styleSlyder.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
@@ -70,7 +71,7 @@
 
 
 </div>
-
+<!--
 <div class="form-popup2" id="myForm2">
   <form method="post" action="markerData.php" id="main_form" class="form-container">
     <h1>Построить маршрут</h1>
@@ -91,41 +92,58 @@
 
 
 </div>
-
+-->
 <div class="scrollStuff">
 <!--<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button> -->
-<div class="custom-control-menu">
-   <div class="form_radio">
+ <div class="custom-control-menu">
+  <ul><li><div class="form_radio">
   <input id="radio1" type="radio" name="radio" value="1">
   <label for="radio-1"><img src="logo.svg" width="50" height="30">&nbsp;Крауд</label>
-   </div>
-   <div class="form_radio">
+   </div></li>
+   <li><div class="form_radio">
   <input id="radio2" type="radio" name="radio" value="2">
   <label for="radio-2"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 1</label>
-   </div>
-   <div class="form_radio">
+   </div></li>
+  <li> <div class="form_radio">
   <input id="radio3" type="radio" name="radio" value="3">
   <label for="radio-3"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 2</label>
-   </div>
-   <div class="form_radio">
+   </div></li>
+ <li><div class="form_radio">
   <input id="radio4" type="radio" name="radio" value="4">
   <label for="radio-4"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 3</label>
-   </div>
-   <div class="form_radio">
+   </div></li>
+ <li><div class="form_radio">
   <input id="radio5" type="radio" name="radio" value="5">
   <label for="radio-5"><img src="logoVolcheka.png" width="20" height="20">&nbsp;Булочная 4</label>
-   </div>
-   <div class="form_radio">
+   </div></li>
+  <li><div class="form_radio">
   <input id="radio6" type="radio" name="radio" value="6">
   <label for="radio-6"><img src="newG.jpg" width="20" height="20">&nbsp;Новая голандия</label>
-   </div>
-   <div class="form_radio">
+   </div></li>
+  <li><div class="form_radio">
   <input id="radio7" type="radio" name="radio" value="7">
   <label for="radio-7">&nbsp;Все метки</label>
-   </div>
-</div>
+   </div></li></ul>
+</div> 
 <div class="routing-panel" id="controls"></div>
 </div> 
+
+<div class="wrapper">
+  <div class="slider-container">
+    <div class="container-scroll">
+      <div class="slider-item"></div>
+      <div class="slider-item"></div>
+      <div class="slider-item"></div>
+      <div class="slider-item"></div>
+      <div class="slider-item"></div>
+    </div>
+  </div>
+  <div class="buttons-for-slider">
+  <button class="bttn-prv"> <h3> < </h3> </button>
+  <button class="bttn-nxt"> <h3> > </h3> </button>
+</div>
+</div>
+
 
 <?php
 
@@ -144,6 +162,7 @@ $jsonStr = json_encode($jsSend);
 
 <div class="custom-popup" id="mapid"></div>
 <script src="mapscript.js"></script> 
+<script src="slider.js"></script> 
 <script type="text/javascript"> 
 
  var strJsonFromPHP = '<?php echo $jsonStr;?>';
@@ -153,15 +172,12 @@ $jsonStr = json_encode($jsSend);
  for(var key in massFromJson){
 
 var popup = L.popup()
-  .setContent('<p class="h2"><strong>' + massFromJson[key].name + '</strong></p>' + '<p><mark>' + massFromJson[key].adress + '</mark></p>' + '<img src="nevotresh.jpg"  width="550" height="300">' + '<form method="post" action="#" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <p> <div class="d-grid gap-2 d-md-flex justify-content-md-end"><div class="d-grid gap-2"> <button  class="btn btn-danger" type="button"  onclick="deleteMarker()">Удалить</button> </div> </div> </p> </form>')
+  .setContent('<p class="h2"><strong>' + massFromJson[key].name + '</strong></p>' + '<p><mark>' + massFromJson[key].adress + '</mark></p>' + '<img src="forest.jpg" class="img-fluid" alt="Responsive image" max-width: 100% height: auto>' + '<form method="post" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <p> <div class="d-grid gap-2 d-md-flex justify-content-md-end"> <button  class="btn btn-danger" type="button"  onclick="deleteMarker()">Удалить</button> </div> </p> </form>')
 
-
-var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2], {icon: redlogo}).addTo(mymap)
+var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2], {icon: redlogo}).addTo(mymap);
 newMarker.bindPopup(popup);
 
 }
-
-
 
 </script>
 

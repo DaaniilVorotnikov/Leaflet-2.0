@@ -59,86 +59,54 @@ var polygon = L.polygon([
     [59.928091, 30.293395]
 ]);
 
-//var markers = L.layerGroup([marker, markerVolcheka1, markerVolcheka2, markerVolcheka3, markerVolcheka4, polygon]);
+var markers = L.layerGroup([marker, markerVolcheka1, markerVolcheka2, markerVolcheka3, markerVolcheka4, polygon]);
+
+const changeLayers = (marker) => {
+    markers.addTo(mymap);
+    markers.remove(mymap);
+    marker.addTo(mymap); 
+}
 
 $("#radio1").change(function(){
-marker.addTo(mymap); 
-markerVolcheka1.remove(mymap);
-markerVolcheka2.remove(mymap);
-markerVolcheka3.remove(mymap);
-markerVolcheka4.remove(mymap);
-polygon.remove(mymap);
+    changeLayers(marker)
 }); 
 
 
 $("#radio2").change(function(){
-markerVolcheka1.addTo(mymap);
-marker.remove(mymap);
-markerVolcheka2.remove(mymap);
-markerVolcheka3.remove(mymap);
-markerVolcheka4.remove(mymap);
-polygon.remove(mymap);
+    changeLayers(markerVolcheka1)
+
 }); 
 
 
 $("#radio3").change(function(){
-markerVolcheka2.addTo(mymap);
-marker.remove(mymap);
-markerVolcheka1.remove(mymap);
-markerVolcheka3.remove(mymap);
-markerVolcheka4.remove(mymap);
-polygon.remove(mymap);
+
+    changeLayers(markerVolcheka2)
 
 }); 
 
 
 $("#radio4").change(function(){
-markerVolcheka3.addTo(mymap);
-marker.remove(mymap);
-markerVolcheka1.remove(mymap);
-markerVolcheka2.remove(mymap);
-markerVolcheka4.remove(mymap);
-polygon.remove(mymap);
+
+changeLayers(markerVolcheka3)
 
 }); 
 
 
 
 $("#radio5").change(function(){
-markerVolcheka4.addTo(mymap);
-marker.remove(mymap);
-markerVolcheka1.remove(mymap);
-markerVolcheka2.remove(mymap);
-markerVolcheka3.remove(mymap);
-polygon.remove(mymap);
+
+changeLayers(markerVolcheka4)
 
 }); 
 
 $("#radio6").change(function(){
-polygon.addTo(mymap);
-marker.remove(mymap);
-markerVolcheka1.remove(mymap);
-markerVolcheka2.remove(mymap);
-markerVolcheka3.remove(mymap);
-markerVolcheka4.remove(mymap);
+
+changeLayers(polygon)
 
 }); 
 
 $("#radio7").change(function(){
-marker.remove(mymap);
-markerVolcheka1.remove(mymap);
-markerVolcheka2.remove(mymap);
-markerVolcheka3.remove(mymap);
-markerVolcheka4.remove(mymap);
-polygon.remove(mymap);
-
-marker.addTo(mymap);
-markerVolcheka1.addTo(mymap);
-markerVolcheka2.addTo(mymap);
-markerVolcheka3.addTo(mymap);
-markerVolcheka4.addTo(mymap);
-polygon.addTo(mymap);
-
+changeLayers(markers)
 });
 
 
@@ -213,26 +181,26 @@ function onMapClick(e){
 }
 
 mymap.on('click', onMapClick);
-
+/*
     function openForm2() {
     document.getElementById("myForm2").style.display = "block"; }
 
-    function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-} 
+ 
     function closeForm2() {
     document.getElementById("myForm2").style.display = "none";
 } 
 
 
-
+*/  
+   function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+} 
 
     function deleteMarker(){
 
-       newMarker.remove(mymap);
-
-
        var del = document.querySelector("input[name='delete']").value;
+
+       mymap.removeLayer(newMarker);
 
 
     $.ajax({
@@ -242,8 +210,6 @@ mymap.on('click', onMapClick);
              success: function(data) {
   }
         });
-
-
 
 }
 
