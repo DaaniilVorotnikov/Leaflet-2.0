@@ -198,9 +198,10 @@ mymap.on('click', onMapClick);
 
     function deleteMarker(){
 
-       var del = document.querySelector("input[name='delete']").value;
+        mymap.removeLayer(newMarker);
 
-       mymap.removeLayer(newMarker);
+
+       var del = document.querySelector("input[name='delete']").value;
 
 
     $.ajax({

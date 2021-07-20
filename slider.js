@@ -1,5 +1,5 @@
 let position = 0;
-const slidesToShow = 2;
+const slidesToShow = 1;
 const slidesToScroll = 1;
 const container = document.querySelector('.slider-container');
 const track = document.querySelector('.container-scroll');
@@ -7,7 +7,6 @@ const item = document.querySelector('.slider-item');
 const bttnPrev = document.querySelector('.bttn-prv');
 const bttnNext = document.querySelector('.bttn-nxt');
 const items = document.querySelectorAll('.slider-item');
-
 const itemCount = items.length;
 const itemWidth = container.clientWidth / slidesToShow;
 const movePosition = slidesToScroll * itemWidth;
@@ -38,6 +37,6 @@ const setPosition = () =>{
 };
 
 const checkBtns = () => {
-	btnPrev.disabled = position === 0;
-	btnNext.disabled = position <= -(itemCount - slidesToShow) * itemWidth;
+	bttnPrev.disabled = position === 0;
+	bttnNext.disabled = position <= -(itemCount - slidesToShow) * itemWidth;
 };

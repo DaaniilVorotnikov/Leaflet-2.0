@@ -26,17 +26,17 @@
 }
 
 .slider-item{
-	min-width: 500px;
-	height:  300px;
+	width: auto;
+	height:  auto;
 }
 .slider-item:nth-child(3n + 1){
-	background-color: gold;
+	background-color: #FFFACD;
 }
 .slider-item:nth-child(3n + 2){
-	background-color: red;
+	background-color: #FFFACD;
 }
 .slider-item:nth-child(3n + 3){
-	background-color: orange;
+	background-color: #FFFACD;
 }
 
 .buttons-for-slider{
