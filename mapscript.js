@@ -198,8 +198,6 @@ mymap.on('click', onMapClick);
 
     function deleteMarker(){
 
-        mymap.removeLayer(newMarker);
-
 
        var del = document.querySelector("input[name='delete']").value;
 
@@ -212,6 +210,7 @@ mymap.on('click', onMapClick);
   }
         });
 
+          newMarker.remove(mymap);
 }
 
 

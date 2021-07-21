@@ -67,30 +67,9 @@
 
 
 </div>
-<!--
-<div class="form-popup2" id="myForm2">
-  <form method="post" action="markerData.php" id="main_form" class="form-container">
-    <h1>Построить маршрут</h1>
 
-    <label for="name"><b>Начальная точка:</b></label>
-    <input type="text" name="name">
-
-
-    <label for="adress"><b>Конечная точка:</b></label>
-    <input type="text" name="finish" >
-
-
-
-    <button type="submit" class="btn">Сохранить</button>
-    <button type="button" class="btn cancel" onclick="closeForm2()">Закрыть</button>
-
-  </form>
-
-
-</div>
--->
 <div class="scrollStuff">
-<!--<button class="open-button-coord" return onclick="openForm2()">Построить маршрут</button> -->
+
  <div class="custom-control-menu">
   <ul><li><div class="form_radio">
   <input id="radio1" type="radio" name="radio" value="1">
@@ -156,14 +135,15 @@ $jsonStr = json_encode($jsSend);
 var popup = L.popup()
   .setContent('<p class="h2"><strong>' + massFromJson[key].name + '</strong></p>' + '<p><mark>' + massFromJson[key].adress + '</mark></p>' + '<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="forest.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item"><img src="roud.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item"><img src="anotherplanet.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item"><img src="newG.jpg" class="d-block w-100" alt="..."></div><div class="carousel-item"><img src="nevotresh.jpg" class="d-block w-100" alt="..."></div></div><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Предыдущий</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Следующий</span></button></div>' + '<form method="post" > <input type="hidden" name="delete" value="' + massFromJson[key].id + '"> <p> <div class="d-grid gap-2 d-md-flex justify-content-md-end"> <button  class="btn btn-danger" type="button"  onclick="deleteMarker()">Удалить</button> </div> </p> </form>')
 
-var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2], {icon: redlogo}).addTo(mymap);
+
+var newMarker = new L.marker([massFromJson[key].coordinates1, massFromJson[key].coordinates2], {icon: redlogo, alt:massFromJson[key].id}).addTo(mymap)
 newMarker.bindPopup(popup);
 
-}
 
+}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-d
+
 </body>
 </html>
